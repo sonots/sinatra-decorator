@@ -1,0 +1,9 @@
+Gemfile.lock
+.bundle
+.yardoc
+*.rbc
+.rbx/
+doc/
+.DS_Store
+tags
+pkg/*
