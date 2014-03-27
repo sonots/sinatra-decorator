@@ -25,37 +25,41 @@ $ bundle
 ## Examples
 
 ```ruby
-# app/controllers/posts.rb
-SampleProject::App.controllers :posts do
+# app.rb
+require 'sinatra'
+require 'slim'
+require 'sinatra-decorator'
+require_relative 'models/post'
+require_relative 'decorators/post_decorator'
 
-  get :index do
-    source = Post.all
-    @posts = decorate(source)
-    render 'posts/index'
-  end
-
-  get :show, with: :id do
-    source = Post.find(params[:id])
-    @post = decorate(source)
-    # or
-    @post = PostDecorator.new(source, context: self)
-    render 'posts/show'
-  end
-
+get '/' do
+  @post = Post.new.decorate
+  slim :show
 end
 
-# app/decorators/post_decorator.rb
+# models/post.rb
+#class Post < ActiveRecord::Base
+#  include Sinatra::Decorator::Decoratable
+#end
+class Post
+  include Sinatra::Decorator::Decoratable
+
+  attr_accessor :id, :body
+  def initialize(params = {})
+    @id   = params[:id]   || 1
+    @body = params[:body] || "body"
+  end
+end
+
+# decorators/post_decorator.rb
 class PostDecorator < Sinatra::Decorator::Base
-  context SampleProject::App
-
   def formated_body
-    h.simple_format(object.body)
+    object.body.gsub('b', 'a')
   end
-
 end
 
-# app/views/posts/show.slim
-h1 = @post.title
+# views/show.slim
+h1 = @post.id
 div
   = @post.formated_body
 ```
