@@ -21,4 +21,6 @@ Gem::Specification.new do |s|
   s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   s.rdoc_options  = ["--charset=UTF-8"]
+  
+  s.add_runtime_dependency "activesupport"
 end

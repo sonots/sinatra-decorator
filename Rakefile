@@ -17,3 +17,9 @@ desc 'Generate documentation for the Sinatra decorator'
 task :doc do
   YARD::CLI::Yardoc.new.run
 end
+
+desc 'Open an irb session preloaded with the gem library'
+task :console do
+  sh 'irb -rubygems -I lib -r sintra-decorator'
+end
+task :c => :console
