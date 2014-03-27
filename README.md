@@ -75,3 +75,8 @@ div
 ## Copyright
 
 Copyright (c) 2014 Naotoshi Seo. See [LICENSE](LICENSE) for details.
+
+## Special Thanks
+
+This gem was made on the basis of the [padrino-decorator](https://github.com/tyabe/padrino-decorator). 
+I greatly appreciate for the orignal author Mr. [@tyabe](https://github.com/tyabe).
