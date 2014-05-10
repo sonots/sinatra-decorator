@@ -13,7 +13,7 @@ Adds an object-oriented layer of presentation logic to your Sinatra application.
 Add the following to your `Gemfile`:
 
 ```ruby
-gem 'sinatra-decorator'
+gem 'sinatra/decorator'
 ```
 
 And then execute:
@@ -28,7 +28,7 @@ $ bundle
 # app.rb
 require 'sinatra'
 require 'slim'
-require 'sinatra-decorator'
+require 'sinatra/decorator'
 require_relative 'models/post'
 require_relative 'decorators/post_decorator'
 
