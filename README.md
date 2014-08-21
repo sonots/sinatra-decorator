@@ -33,7 +33,7 @@ require_relative 'models/post'
 require_relative 'decorators/post_decorator'
 
 get '/' do
-  @post = Post.new.decorate
+  @post = Post.new.decorate # will try to find "#{self.class}Decorator" class
   slim :show
 end
 
