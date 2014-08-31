@@ -15,19 +15,6 @@ module Sinatra
         __getobj__
       end
 
-      def class
-        to_model.class
-      end
-
-      def kind_of?(klass)
-        to_model.kind_of?(klass)
-      end
-      alias_method :is_a?, :kind_of?
-
-      def instance_of?(klass)
-        to_model.instance_of?(klass)
-      end
-
       def decorated?
         true
       end
