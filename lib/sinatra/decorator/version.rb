@@ -1,6 +1,6 @@
 module Sinatra
   module Decorator
-    VERSION = '0.1.1' unless defined?(Sinatra::Decorator::VERSION)
+    VERSION = '0.2.0' unless defined?(Sinatra::Decorator::VERSION)
 
     def self.version
       VERSION
